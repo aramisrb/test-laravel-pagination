@@ -1,9 +1,9 @@
 <template>
 
-    <div id="app">
+    <div id="app" class="container my-4">
         <h1>{{ message }}</h1>
 
-<table>
+        <table>
             <tbody>
                 <tr v-for="(project, index) in projects">
                     <td>{{ project.id }}</td>
@@ -12,19 +12,20 @@
                 </tr>
             </tbody>
         </table>
-        <div class="pagination">
+        <nav class="mb-4">
 
             <span>Page {{ pagination.current_page}} of {{ pagination.last_page}}</span>
             <v-pagination 
             v-model=pagination.current_page 
             :page-count=pagination.last_page
             :labels="paginationAnchorTexts"
+            :classes="bootstrapPaginationClasses"
             @input="next"
             >
             </v-pagination>
 
 
-        </div>
+        </nav>
         
 
     </div>
@@ -52,6 +53,13 @@ export default {
                 pagination: [],
                 message:'Hello concha',
                 currentPage:'1',
+                 bootstrapPaginationClasses: {
+                    ul: 'pagination',
+                    li: 'page-item',
+                    liActive: 'active',
+                    liDisable: 'disabled',
+                    button: 'page-link'  
+                  },
                 paginationAnchorTexts: {
                     first: 'First',
                     prev: 'Previous',

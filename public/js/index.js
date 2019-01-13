@@ -1797,6 +1797,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1814,6 +1815,13 @@ __webpack_require__.r(__webpack_exports__);
       pagination: [],
       message: 'Hello concha',
       currentPage: '1',
+      bootstrapPaginationClasses: {
+        ul: 'pagination',
+        li: 'page-item',
+        liActive: 'active',
+        liDisable: 'disabled',
+        button: 'page-link'
+      },
       paginationAnchorTexts: {
         first: 'First',
         prev: 'Previous',
@@ -36705,7 +36713,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [
+  return _c("div", { staticClass: "container my-4", attrs: { id: "app" } }, [
     _c("h1", [_vm._v(_vm._s(_vm.message))]),
     _vm._v(" "),
     _c("table", [
@@ -36725,8 +36733,8 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c(
-      "div",
-      { staticClass: "pagination" },
+      "nav",
+      { staticClass: "mb-4" },
       [
         _c("span", [
           _vm._v(
@@ -36740,7 +36748,8 @@ var render = function() {
         _c("v-pagination", {
           attrs: {
             "page-count": _vm.pagination.last_page,
-            labels: _vm.paginationAnchorTexts
+            labels: _vm.paginationAnchorTexts,
+            classes: _vm.bootstrapPaginationClasses
           },
           on: { input: _vm.next },
           model: {
